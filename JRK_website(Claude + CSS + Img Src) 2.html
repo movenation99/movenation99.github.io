@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JRK Engineering & Services Pte Ltd</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #1a8754; /* Green link color */
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1a8754; /* Green logo color */
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu a {
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: #1a8754; /* Green hover color */
+        }
+        
+        /* Hero Section - Responsive Background Image */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Background).jpg") no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            padding-top: 60px;
+        }
+        
+        @media (max-width: 600px) {
+            .hero {
+                background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                           url("/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Background)-small.jpg") no-repeat center center;
+                background-size: cover;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 1200px) {
+            .hero {
+                background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                           url("/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Background)-medium.jpg") no-repeat center center;
+                background-size: cover;
+            }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #1a8754; /* Green button */
+            color: #fff;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #146c43; /* Darker green on hover */
+        }
+        
+        /* Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #2b6cb0; /* Blue heading */
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #666;
+        }
+        
+        /* Services */
+        .services {
+            background-color: #f1f5f9; /* Light grey background */
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 3px solid #1a8754; /* Green border accent */
+        }
+        
+        .service-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #1a8754; /* Green title */
+        }
+        
+        /* Contact */
+        .contact {
+            background-color: #f1f5f9; /* Light grey background */
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-item {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #2b6cb0; /* Blue heading */
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #4b5563; /* Grey footer */
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: #fff;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #1a8754; /* Green underline */
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #1a8754; /* Green hover */
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #6b7280; /* Lighter grey border */
+            color: #bbb;
+        }
+        
+        /* Email link */
+        .email-link {
+            color: inherit;
+            text-decoration: underline;
+        }
+        
+        /* Section CTA */
+        .section-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        /* Scrolling Images Effect */
+        .scroll-images-container {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f5f9;
+        }
+
+        .scroll-image {
+            position: absolute;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.8s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .scroll-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .scroll-image.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Transition section with scrolling images */
+        .transition-section {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+            }
+            
+            .nav-menu {
+                margin-top: 20px;
+            }
+            
+            .nav-menu li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .scroll-images-container {
+                height: 250px;
+            }
+            
+            .scroll-image img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">JRK Engineering & Services</div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Building Excellence Through Innovation</h1>
+                <p>JRK Engineering & Services Pte Ltd is your trusted Direct Contractor providing high-quality engineering solutions since 2025.</p>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- First Scrolling Images Section -->
+      <div class="scroll-images-container">
+        <div class="scroll-image" style="left: 10%; top: 40px; width: 280px; height: 260px;">
+            <img src="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 1).jpg" 
+                 srcset="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 1)-small.jpg 400w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 1)-medium.jpg 800w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 1).jpg 1200w" 
+                 sizes="(max-width: 600px) 280px, (max-width: 1200px) 560px, 840px" 
+                 alt="Engineering blueprints" />
+        </div>
+        <div class="scroll-image" style="left: 33%; top: 30px; width: 300px; height: 260px;">
+            <img src="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 2).jpg" 
+                 srcset="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 2)-small.jpg 400w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 2)-medium.jpg 800w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 2).jpg 1200w" 
+                 sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 900px" 
+                 alt="Construction site" />
+        </div>
+        <div class="scroll-image" style="left: 55%; top: 40px; width: 300px; height: 260px;">
+            <img src="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 3).jpg" 
+                 srcset="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 3)-small.jpg 400w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 3)-medium.jpg 800w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 3).jpg 1200w" 
+                 sizes="(max-width: 600px) 300px, (max-width: 1200px) 600px, 900px" 
+                 alt="Renovation work" />
+        </div>
+        <div class="scroll-image" style="left: 78%; top: 40px; width: 280px; height: 260px;">
+            <img src="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 4).jpg" 
+                 srcset="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 4)-small.jpg 400w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 4)-medium.jpg 800w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(Services 4).jpg 1200w" 
+                 sizes="(max-width: 600px) 280px, (max-width: 1200px) 560px, 840px" 
+                 alt="Completed project" />
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive engineering solutions for your projects</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3 class="service-title">Renovation & Reinstatement Works</h3>
+                    <p>Complete renovation services and building reinstatement for commercial and residential properties.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3 class="service-title">Hacking, Removal and Disposal</h3>
+                    <p>Professional demolition, hacking services and proper disposal of construction waste.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3 class="service-title">Flooring</h3>
+                    <p>Installation and maintenance of various flooring types including tile, vinyl, wood, and concrete.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3 class="service-title">Walls</h3>
+                    <p>Construction, partition, and finishing services for interior and exterior walls.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3 class="service-title">Ceiling Works</h3>
+                    <p>Design and installation of various ceiling systems including drop ceilings and decorative finishes.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3 class="service-title">Painting, Sealing and Detailing</h3>
+                    <p>Professional painting services with premium materials and attention to detail.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3 class="service-title">Plumbing and Pipework</h3>
+                    <p>Installation, repair, and maintenance of plumbing systems for residential and commercial properties.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3 class="service-title">Electrical Wiring Works</h3>
+                    <p>Comprehensive electrical installation and rewiring services with safety as our top priority.</p>
+                </div>
+            </div>
+            
+            <div class="section-cta">
+                <a href="#contact" class="btn">Contact Us About Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Second Scrolling Images Section -->
+      <div class="scroll-images-container">
+        <div class="scroll-image" style="left: 15%; top: 40px; width: 320px; height: 250px;">
+            <img src="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(About Us 1).jpg" 
+                 srcset="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(About Us 1)-small.jpg 400w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(About Us 1)-medium.jpg 800w, 
+                        /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(About Us 1).jpg 1200w" 
+                 sizes="(max-width: 600px) 320px, (max-width: 1200px) 640px, 960px" 
+                 alt="Flooring installation" />
+        </div>
+        <div class="scroll-image" style="left: 40%; top: 10px; width: 330px; height: 280px;">
+            <img src="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(About Us 2).jpg" 
+                 srcset="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(About Us 2)-small.jpg 400w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(About Us 2)-medium.jpg 800w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(About Us 2).jpg 1200w" 
+                 sizes="(max-width: 600px) 330px, (max-width: 1200px) 660px, 990px" 
+                 alt="Electrical work" />
+        </div>
+        <div class="scroll-image" style="left: 70%; top: 40px; width: 320px; height: 250px;">
+            <img src="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(About Us 3).jpg" 
+                 srcset="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(About Us 3)-small.jpg 400w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(About Us 3)-medium.jpg 800w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction(About Us 3).jpg 1200w" 
+                 sizes="(max-width: 600px) 320px, (max-width: 1200px) 640px, 960px" 
+                 alt="Painting service" />
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <p class="section-subtitle">Learn more about JRK Engineering & Services Pte Ltd</p>
+            
+            <div>
+                <p>Founded in 2025, JRK Engineering & Services Pte Ltd has quickly established itself as a reliable and innovative engineering firm in Singapore. We specialize in providing comprehensive engineering solutions for commercial, industrial, and residential projects.</p>
+                <br>
+                <p>Our team of highly skilled engineers, technicians, and project managers are committed to delivering excellence in every project we undertake. We pride ourselves on our attention to detail, commitment to quality, and our ability to meet deadlines while maintaining the highest standards of workmanship.</p>
+                <br>
+                <p><strong>At JRK Engineering, we place our clients at the center of everything we do.</strong> We understand that each project represents your vision and goals, and we are dedicated to bringing those to life. Our client-first approach means we listen carefully to your needs, maintain open communication throughout the project lifecycle, and work collaboratively to achieve your desired outcomes.</p>
+                <br>
+                <p>We believe that successful projects begin with understanding your objectives and end with your complete satisfaction. Our team takes the time to fully comprehend your requirements, offering professional guidance and innovative solutions tailored specifically to help you achieve your end goals, whether that's creating a more functional space, enhancing aesthetics, or improving energy efficiency.</p>
+                <br>
+                <p>Our commitment to transparent communication ensures you're always informed about project progress, challenges, and solutions. We value the relationships we build with our clients and strive to be your trusted partner for all your engineering and renovation needs.</p>
+            </div>
+            
+            <div class="section-cta">
+                <a href="#contact" class="btn">Get to Know Us Better</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Third Scrolling Images Section -->
+    <div class="scroll-images-container">
+        <div class="scroll-image" style="left: 5%; top: 50px; width: 300px; height: 200px;">
+            <img src="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 1).jpeg" 
+                 srcset="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 1)-small.jpeg 400w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 1)-medium.jpeg 800w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 1).jpeg 1200w" 
+                 sizes="(max-width: 600px) 200px, (max-width: 1200px) 400px, 600px" 
+                 alt="Team meeting" />
+        </div>
+        <div class="scroll-image" style="left: 30%; top: 80px; width: 250px; height: 150px;">
+            <img src="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 2).jpeg" 
+                 srcset="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 2)-small.jpeg 400w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 2)-medium.jpeg 800w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 2).jpeg 1200w" 
+                 sizes="(max-width: 600px) 150px, (max-width: 1200px) 300px, 450px" 
+                 alt="Client consultation" />
+        </div>
+        <div class="scroll-image" style="left: 55%; top: 40px; width: 280px; height: 180px;">
+            <img src="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 3).jpeg" 
+                 srcset="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 3)-small.jpeg 400w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 3)-medium.jpeg 800w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 3).jpeg 1200w" 
+                 sizes="(max-width: 600px) 180px, (max-width: 1200px) 360px, 540px" 
+                 alt="Project planning" />
+        </div>
+        <div class="scroll-image" style="left: 80%; top: 60px; width: 260px; height: 160px;">
+            <img src="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 4).jpeg" 
+                 srcset="/Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 4)-small.jpeg 400w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 4)-medium.jpeg 800w, 
+                         /Users/jitrenlee/Documents/JRK/Website/Claude/images/Construction (Contact Us 4).jpeg 1200w" 
+                 sizes="(max-width: 600px) 160px, (max-width: 1200px) 320px, 480px" 
+                 alt="Final inspection" />
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Get in touch with our team</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Address</h3>
+                        <p>572B Woodlands Avenue 1, #07-838, Champions Court</p>
+                        <p>Singapore 732572</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Phone</h3>
+                        <p>+65 9229 6338</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p><a href="mailto:jrk.engineeringandservices@gmail.com" class="email-link">jrk.engineeringandservices@gmail.com</a></p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p>Saturday: 9:00 AM - 1:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject">
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>JRK Engineering & Services</h3>
+                    <p>Your trusted Direct Contractor for comprehensive engineering solutions since 2025.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Renovation & Reinstatement</a></li>
+                        <li><a href="#services">Hacking & Disposal</a></li>
+                        <li><a href="#services">Flooring & Walls</a></li>
+                        <li><a href="#services">Plumbing & Electrical</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Get In Touch</h3>
+                    <ul class="footer-links">
+                        <li>572B Woodlands Avenue 1, #07-838, Champions Court</li>
+                        <li>Singapore 732572</li>
+                        <li>+65 9229 6338</li>
+                        <li><a href="mailto:jrk.engineeringandservices@gmail.com">jrk.engineeringandservices@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 JRK Engineering & Services Pte Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for scrolling images effect - IMPROVED -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollImages = document.querySelectorAll('.scroll-image');
+            
+            function checkScroll() {
+                scrollImages.forEach((image) => {
+                    const imagePosition = image.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    // Check if image is in viewport
+                    if (imagePosition.top < windowHeight && imagePosition.bottom > 0) {
+                        image.classList.add('visible');
+                    } else if (imagePosition.top > windowHeight || imagePosition.bottom < 0) {
+                        image.classList.remove('visible');
+                    }
+                });
+            }
+            
+            // Initial check on page load
+            setTimeout(function() {
+                checkScroll();
+            }, 300);
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', checkScroll);
+            
+            // For mobile devices, also check on touch events
+            window.addEventListener('touchmove', checkScroll);
+            
+            // Check when window resizes
+            window.addEventListener('resize', checkScroll);
+        });
+    </script>
+</body>
+</html>
